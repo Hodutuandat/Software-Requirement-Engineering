@@ -91,6 +91,10 @@
         .action-links a:hover {
             text-decoration: underline;
         }
+        /* Ẩn link "Xem hiệu suất" mặc định */
+        .action-links .performance-link {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -121,7 +125,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <tr data-team-status="dang-hoat-dong">
                     <td>1</td>
                     <td>Nhóm Fireflies</td>
                     <td>CNPM-001</td>
@@ -130,10 +134,10 @@
                     <td>Đang hoạt động</td>
                     <td class="action-links">
                         <a href="lecturer_team_tasks.html?teamId=CNPM-001&courseId=CNTT101">Xem nhiệm vụ</a>
-                        <a href="lecturer_team_performance.html?teamId=CNPM-001&courseId=CNTT101">Xem hiệu suất</a>
+                        <a href="lecturer_team_performance.html?teamId=CNPM-001&courseId=CNTT101" class="performance-link">Xem hiệu suất</a>
                     </td>
                 </tr>
-                <tr>
+                <tr data-team-status="dang-hoat-dong">
                     <td>2</td>
                     <td>Nhóm Alpha</td>
                     <td>CNPM-002</td>
@@ -142,10 +146,10 @@
                     <td>Đang hoạt động</td>
                     <td class="action-links">
                         <a href="lecturer_team_tasks.html?teamId=CNPM-002&courseId=CNTT101">Xem nhiệm vụ</a>
-                        <a href="lecturer_team_performance.html?teamId=CNPM-002&courseId=CNTT101">Xem hiệu suất</a>
+                        <a href="lecturer_team_performance.html?teamId=CNPM-002&courseId=CNTT101" class="performance-link">Xem hiệu suất</a>
                     </td>
                 </tr>
-                <tr>
+                 <tr data-team-status="da-hoan-thanh">
                     <td>3</td>
                     <td>Nhóm Blue Ocean</td>
                     <td>CNPM-003</td>
@@ -154,19 +158,19 @@
                     <td>Đã hoàn thành</td>
                     <td class="action-links">
                         <a href="lecturer_team_tasks.html?teamId=CNPM-003&courseId=CNTT101">Xem nhiệm vụ</a>
-                        <a href="lecturer_team_performance.html?teamId=CNPM-003&courseId=CNTT101">Xem hiệu suất</a>
+                        <a href="lecturer_team_performance.html?teamId=CNPM-003&courseId=CNTT101" class="performance-link">Xem hiệu suất</a>
                     </td>
                 </tr>
-                <tr>
+                <tr data-team-status="dang-hoat-dong">
                     <td>4</td>
                     <td>Nhóm Innovators</td>
                     <td>CNPM-004</td>
                     <td>5</td>
                     <td>Phạm Thị D</td>
                     <td>Đang hoạt động</td>
-                    <td class="action-links">
+                     <td class="action-links">
                         <a href="lecturer_team_tasks.html?teamId=CNPM-004&courseId=CNTT101">Xem nhiệm vụ</a>
-                        <a href="lecturer_team_performance.html?teamId=CNPM-004&courseId=CNTT101">Xem hiệu suất</a>
+                        <a href="lecturer_team_performance.html?teamId=CNPM-004&courseId=CNTT101" class="performance-link">Xem hiệu suất</a>
                     </td>
                 </tr>
                 </tbody>
@@ -184,6 +188,22 @@
             else if (courseId === "ATTT401") courseName = "An toàn thông tin";
 
             document.getElementById('course-title').innerText = `Danh sách Nhóm - Môn học: ${courseName}`;
+
+            // Lấy tất cả các hàng trong bảng
+            const teamRows = document.querySelectorAll('.team-table tbody tr');
+
+            // Duyệt qua từng hàng
+            teamRows.forEach(row => {
+                // Lấy trạng thái của nhóm từ thuộc tính data-team-status
+                const teamStatus = row.dataset.teamStatus;
+                // Lấy link "Xem hiệu suất" trong hàng
+                const performanceLink = row.querySelector('.performance-link');
+
+                // Nếu trạng thái là "da-hoan-thanh", hiển thị link "Xem hiệu suất"
+                if (teamStatus === 'da-hoan-thanh') {
+                    performanceLink.style.display = 'inline';
+                }
+            });
         };
     </script>
 </body>
