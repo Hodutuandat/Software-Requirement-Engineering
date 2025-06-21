@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lịch sử Nhiệm vụ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .header {
+            background-color: #007bff;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .nav-bar a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .nav-bar a:hover {
+            color: #e2e6ea;
+        }
+        .container {
+            padding: 20px;
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #007bff;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        .back-button {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 15px;
+            background-color: #6c757d;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .back-button:hover {
+            background-color: #5a6268;
+        }
+        .task-details-header {
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #dee2e6;
+        }
+        .task-details-header h3 {
+            margin-top: 0;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .task-details-header p {
+            margin: 5px 0;
+            color: #666;
+        }
+
+        .history-list {
+            list-style: none;
+            padding: 0;
+        }
+        .history-item {
+            border-left: 3px solid #007bff;
+            padding-left: 15px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .history-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 15px;
+            height: 15px;
+            background-color: #007bff;
+            border-radius: 50%;
+            border: 2px solid white;
+            box-shadow: 0 0 0 2px #007bff;
+        }
+        .history-item h4 {
+            margin-top: 0;
+            margin-bottom: 5px;
+            color: #007bff;
+            font-size: 16px;
+        }
+        .history-item p {
+            margin: 3px 0;
+            color: #555;
+            font-size: 14px;
+        }
+        .history-item .timestamp {
+            font-size: 12px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Hệ thống Quản lý Nhóm VLU</h1>
+        <nav class="nav-bar">
+            <a href="#">Trang chủ</a>
+            <a href="Lecturer_Course.html">Môn học của tôi</a>
+            <a href="#">Thông báo</a>
+            <a href="LLogin.html">Đăng xuất</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <a href="javascript:history.back()" class="back-button">← Quay lại danh sách nhiệm vụ</a>
+        <h2 id="task-history-title">Lịch sử hoạt động của nhiệm vụ: [Tên Nhiệm vụ]</h2>
+
+        <div class="task-details-header">
+            <h3>Tên nhiệm vụ: Nghiên cứu yêu cầu người dùng</h3>
+            <p>Người thực hiện: Nguyễn Văn A</p>
+            <p>Hạn chót: 20/07/2025</p>
+            <p>Mô tả: Thu thập và phân tích các yêu cầu từ phía người dùng cuối.</p>
+        </div>
+
+        <ul class="history-list">
+            <li class="history-item">
+                <h4>Nhiệm vụ được tạo</h4>
+                <p>Bởi: Nguyễn Văn S (Leader)</p>
+                <span class="timestamp">20/06/2025 09:00 AM</span>
+            </li>
+            <li class="history-item">
+                <h4>Cập nhật trạng thái: Đang tiến hành</h4>
+                <p>Bởi: Nguyễn Văn A</p>
+                <p>Ghi chú: Đã bắt đầu khảo sát người dùng.</p>
+                <span class="timestamp">21/06/2025 02:30 PM</span>
+            </li>
+            <li class="history-item">
+                <h4>Cập nhật tiến độ: Hoàn thành 50%</h4>
+                <p>Bởi: Nguyễn Văn A</p>
+                <p>Ghi chú: Đã hoàn thành khảo sát, đang phân tích dữ liệu.</p>
+                <span class="timestamp">23/06/2025 10:15 AM</span>
+            </li>
+            <li class="history-item">
+                <h4>Bình luận mới</h4>
+                <p>Bởi: Trần Thị E (Thành viên)</p>
+                <p>Nội dung: A ơi, có cần em hỗ trợ phân tích không?</p>
+                <span class="timestamp">24/06/2025 04:00 PM</span>
+            </li>
+            <li class="history-item">
+                <h4>Cập nhật tiến độ: Hoàn thành 80%</h4>
+                <p>Bởi: Nguyễn Văn A</p>
+                <p>Ghi chú: Đã có bản nháp đầu tiên, đang xem xét lại.</p>
+                <span class="timestamp">26/06/2025 09:00 AM</span>
+            </li>
+            </ul>
+    </div>
+
+    <script>
+        // Simple JavaScript to update title based on URL parameters (for demo purposes)
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const taskId = urlParams.get('taskId');
+            let taskName = "Nhiệm vụ không xác định";
+            if (taskId === "T001") taskName = "Nghiên cứu yêu cầu người dùng";
+            else if (taskId === "T002") taskName = "Thiết kế cơ sở dữ liệu";
+            else if (taskId === "T003") taskName = "Phát triển giao diện đăng nhập";
+            else if (taskId === "T004") taskName = "Viết tài liệu đặc tả yêu cầu";
+
+            document.getElementById('task-history-title').innerText = `Lịch sử hoạt động của nhiệm vụ: ${taskName}`;
+        };
+    </script>
+</body>
+</html>

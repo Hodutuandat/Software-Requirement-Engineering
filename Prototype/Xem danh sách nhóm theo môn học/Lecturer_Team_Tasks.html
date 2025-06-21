@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giám sát Nhiệm vụ Nhóm</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .header {
+            background-color: #007bff;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .nav-bar a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .nav-bar a:hover {
+            color: #e2e6ea;
+        }
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #007bff;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        .back-button {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 15px;
+            background-color: #6c757d;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .back-button:hover {
+            background-color: #5a6268;
+        }
+        .task-list {
+            list-style: none;
+            padding: 0;
+        }
+        .task-item {
+            background-color: #f9f9f9;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .task-info {
+            flex-grow: 1;
+        }
+        .task-info h3 {
+            margin-top: 0;
+            margin-bottom: 5px;
+            color: #333;
+            font-size: 18px;
+        }
+        .task-info p {
+            margin: 5px 0;
+            color: #666;
+            font-size: 14px;
+        }
+        .task-status {
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            color: white;
+            font-size: 13px;
+        }
+        .status-chua-bat-dau { background-color: #ffc107; color: #333; } /* Warning */
+        .status-dang-tien-hanh { background-color: #17a2b8; } /* Info */
+        .status-hoan-thanh { background-color: #28a745; } /* Success */
+        .status-qua-han { background-color: #dc3545; } /* Danger */
+
+        .task-actions {
+            margin-left: 20px;
+        }
+        .task-actions a {
+            background-color: #007bff;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+        .task-actions a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Hệ thống Quản lý Nhóm VLU</h1>
+        <nav class="nav-bar">
+            <a href="#">Trang chủ</a>
+            <a href="LLecturer_Course.html">Môn học của tôi</a>
+            <a href="#">Thông báo</a>
+            <a href="LLogin.html">Đăng xuất</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <a href="javascript:history.back()" class="back-button">← Quay lại danh sách nhóm</a>
+        <h2 id="team-task-title">Nhiệm vụ của Nhóm: [Tên Nhóm] (Môn học: [Tên Môn học])</h2>
+
+        <ul class="task-list">
+            <li class="task-item">
+                <div class="task-info">
+                    <h3>Nghiên cứu yêu cầu người dùng</h3>
+                    <p>Người thực hiện: Nguyễn Văn A</p>
+                    <p>Hạn chót: 20/07/2025</p>
+                    <p>Mô tả: Thu thập và phân tích các yêu cầu từ phía người dùng cuối.</p>
+                </div>
+                <div class="task-actions">
+                    <span class="task-status status-dang-tien-hanh">Đang tiến hành</span>
+                    <a href="lecturer_task_history.html?taskId=T001" style="margin-left: 10px;">Xem lịch sử</a>
+                </div>
+            </li>
+
+            <li class="task-item">
+                <div class="task-info">
+                    <h3>Thiết kế cơ sở dữ liệu</h3>
+                    <p>Người thực hiện: Trần Thị B</p>
+                    <p>Hạn chót: 25/07/2025</p>
+                    <p>Mô tả: Xây dựng cấu trúc cơ sở dữ liệu cho ứng dụng.</p>
+                </div>
+                <div class="task-actions">
+                    <span class="task-status status-chua-bat-dau">Chưa bắt đầu</span>
+                    <a href="lecturer_task_history.html?taskId=T002" style="margin-left: 10px;">Xem lịch sử</a>
+                </div>
+            </li>
+
+            <li class="task-item">
+                <div class="task-info">
+                    <h3>Phát triển giao diện đăng nhập</h3>
+                    <p>Người thực hiện: Lê Văn C</p>
+                    <p>Hạn chót: 15/07/2025</p>
+                    <p>Mô tả: Lập trình giao diện người dùng cho chức năng đăng nhập.</p>
+                </div>
+                <div class="task-actions">
+                    <span class="task-status status-hoan-thanh">Hoàn thành</span>
+                    <a href="lecturer_task_history.html?taskId=T003" style="margin-left: 10px;">Xem lịch sử</a>
+                </div>
+            </li>
+
+            <li class="task-item">
+                <div class="task-info">
+                    <h3>Viết tài liệu đặc tả yêu cầu</h3>
+                    <p>Người thực hiện: Phạm Thị D</p>
+                    <p>Hạn chót: 18/07/2025</p>
+                    <p>Mô tả: Tổng hợp và viết tài liệu chi tiết về các yêu cầu của hệ thống.</p>
+                </div>
+                <div class="task-actions">
+                    <span class="task-status status-qua-han">Quá hạn</span>
+                    <a href="Lecturer_Task_History.html?taskId=T004" style="margin-left: 10px;">Xem lịch sử</a>
+                </div>
+            </li>
+            </ul>
+    </div>
+
+    <script>
+        // Simple JavaScript to update title based on URL parameters (for demo purposes)
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const teamId = urlParams.get('teamId');
+            const courseId = urlParams.get('courseId');
+
+            let teamName = "Nhóm không xác định";
+            if (teamId === "CNPM-001") teamName = "Fireflies";
+            else if (teamId === "CNPM-002") teamName = "Alpha";
+            else if (teamId === "CNPM-003") teamName = "Blue Ocean";
+            else if (teamId === "CNPM-004") teamName = "Innovators";
+
+            let courseName = "Môn học không xác định";
+            if (courseId === "CNTT101") courseName = "Công nghệ phần mềm";
+
+            document.getElementById('team-task-title').innerText = `Nhiệm vụ của Nhóm: ${teamName} (Môn học: ${courseName})`;
+        };
+    </script>
+</body>
+</html>
