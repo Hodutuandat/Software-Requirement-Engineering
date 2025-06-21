@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách Nhóm</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .header {
+            background-color: #007bff;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .nav-bar a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .nav-bar a:hover {
+            color: #e2e6ea;
+        }
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #007bff;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        .back-button {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 15px;
+            background-color: #6c757d;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .back-button:hover {
+            background-color: #5a6268;
+        }
+        .team-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .team-table th, .team-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        .team-table th {
+            background-color: #f2f2f2;
+            color: #555;
+            font-weight: bold;
+        }
+        .team-table tr:nth-child(even) {
+            background-color: #f8f8f8;
+        }
+        .team-table tr:hover {
+            background-color: #f1f1f1;
+        }
+        .view-details-link {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .view-details-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Hệ thống Quản lý Nhóm VLU</h1>
+        <nav class="nav-bar">
+            <a href="#">Trang chủ</a>
+            <a href="Lecturer_Course.html">Môn học của tôi</a>
+            <a href="#">Thông báo</a>
+            <a href="Login.html">Đăng xuất</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <a href="Lecturer_Course.html" class="back-button">← Quay lại danh sách môn học</a>
+        <h2 id="course-title">Danh sách Nhóm - Môn học: Công nghệ phần mềm</h2>
+
+        <table class="team-table">
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Tên Nhóm</th>
+                    <th>Mã Nhóm</th>
+                    <th>Số Thành viên</th>
+                    <th>Trưởng nhóm</th>
+                    <th>Trạng thái</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Nhóm Fireflies</td>
+                    <td>CNPM-001</td>
+                    <td>5</td>
+                    <td>Nguyễn Văn A</td>
+                    <td>Đang hoạt động</td>
+                    <td><a href="#" class="view-details-link">Xem chi tiết</a></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Nhóm Alpha</td>
+                    <td>CNPM-002</td>
+                    <td>4</td>
+                    <td>Trần Thị B</td>
+                    <td>Đang hoạt động</td>
+                    <td><a href="#" class="view-details-link">Xem chi tiết</a></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Nhóm Blue Ocean</td>
+                    <td>CNPM-003</td>
+                    <td>6</td>
+                    <td>Lê Văn C</td>
+                    <td>Đã hoàn thành</td>
+                    <td><a href="#" class="view-details-link">Xem chi tiết</a></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Nhóm Innovators</td>
+                    <td>CNPM-004</td>
+                    <td>5</td>
+                    <td>Phạm Thị D</td>
+                    <td>Đang hoạt động</td>
+                    <td><a href="#" class="view-details-link">Xem chi tiết</a></td>
+                </tr>
+                </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Simple JavaScript to update course title based on URL parameter (for demo purposes)
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const courseId = urlParams.get('courseId');
+            let courseName = "Môn học không xác định";
+            if (courseId === "CNTT101") courseName = "Công nghệ phần mềm";
+            else if (courseId === "PTKHT002") courseName = "Phân tích và thiết kế hệ thống";
+            else if (courseId === "LTWEB305") courseName = "Lập trình Web nâng cao";
+            else if (courseId === "ATTT401") courseName = "An toàn thông tin";
+
+            document.getElementById('course-title').innerText = `Danh sách Nhóm - Môn học: ${courseName}`;
+        };
+    </script>
+</body>
+</html>

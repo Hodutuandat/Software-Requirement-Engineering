@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý Nhóm</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .header {
+            background-color: #007bff;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .nav-bar a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .nav-bar a:hover {
+            color: #e2e6ea;
+        }
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #007bff;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        .search-filter {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+        .search-filter input[type="text"],
+        .search-filter select {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            min-width: 150px;
+        }
+        .search-filter button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .search-filter button:hover {
+            background-color: #218838;
+        }
+        .course-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .course-card {
+            background-color: #f9f9f9;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        .course-card h3 {
+            margin-top: 0;
+            color: #007bff;
+            font-size: 20px;
+        }
+        .course-card p {
+            margin: 8px 0;
+            color: #666;
+        }
+        .course-card .view-teams-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 15px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .course-card .view-teams-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Hệ thống Quản lý Nhóm VLU</h1>
+        <nav class="nav-bar">
+            <a href="#">Trang chủ</a>
+            <a href="#">Môn học của tôi</a>
+            <a href="#">Thông báo</a>
+            <a href="login.html">Đăng xuất</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Môn học của bạn</h2>
+
+        <div class="search-filter">
+            <input type="text" placeholder="Tìm kiếm theo tên môn học hoặc mã môn...">
+            <select>
+                <option value="">Tất cả trạng thái</option>
+                <option value="active">Đang diễn ra</option>
+                <option value="completed">Đã hoàn thành</option>
+                <option value="upcoming">Sắp diễn ra</option>
+            </select>
+            <button>Tìm kiếm</button>
+        </div>
+
+        <div class="course-list">
+            <div class="course-card">
+                <h3>Công nghệ phần mềm</h3>
+                <p>Mã môn: CNTT101</p>
+                <p>Số lượng nhóm: 15</p>
+                <p>Trạng thái: Đang diễn ra</p>
+                <a href="lecturer_teams_detail.html?courseId=CNTT101" class="view-teams-btn">Xem danh sách nhóm</a>
+            </div>
+
+            <div class="course-card">
+                <h3>Phân tích và thiết kế hệ thống</h3>
+                <p>Mã môn: PTKHT002</p>
+                <p>Số lượng nhóm: 12</p>
+                <p>Trạng thái: Đang diễn ra</p>
+                <a href="lecturer_teams_detail.html?courseId=PTKHT002" class="view-teams-btn">Xem danh sách nhóm</a>
+            </div>
+
+            <div class="course-card">
+                <h3>Lập trình Web nâng cao</h3>
+                <p>Mã môn: LTWEB305</p>
+                <p>Số lượng nhóm: 8</p>
+                <p>Trạng thái: Đã hoàn thành</p>
+                <a href="lecturer_teams_detail.html?courseId=LTWEB305" class="view-teams-btn">Xem danh sách nhóm</a>
+            </div>
+
+            <div class="course-card">
+                <h3>An toàn thông tin</h3>
+                <p>Mã môn: ATTT401</p>
+                <p>Số lượng nhóm: 10</p>
+                <p>Trạng thái: Đang diễn ra</p>
+                <a href="lecturer_teams_detail.html?courseId=ATTT401" class="view-teams-btn">Xem danh sách nhóm</a>
+            </div>
+
+            </div>
+    </div>
+</body>
+</html>
