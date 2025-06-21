@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết Đánh giá Đồng cấp</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .header {
+            background-color: #007bff;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .nav-bar a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .nav-bar a:hover {
+            color: #e2e6ea;
+        }
+        .container {
+            padding: 20px;
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #007bff;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        .back-button {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 15px;
+            background-color: #6c757d;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .back-button:hover {
+            background-color: #5a6268;
+        }
+        .student-info {
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #dee2e6;
+        }
+        .student-info h3 {
+            margin-top: 0;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .evaluation-item {
+            background-color: #f9f9f9;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+        }
+        .evaluation-item h4 {
+            margin-top: 0;
+            margin-bottom: 8px;
+            color: #007bff;
+        }
+        .evaluation-item p {
+            margin: 5px 0;
+            color: #555;
+            font-size: 14px;
+        }
+        .evaluation-item strong {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Hệ thống Quản lý Nhóm VLU</h1>
+        <nav class="nav-bar">
+            <a href="#">Trang chủ</a>
+            <a href="Lecturer_Course.html">Môn học của tôi</a>
+            <a href="#">Thông báo</a>
+            <a href="Login.html">Đăng xuất</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <a href="javascript:history.back()" class="back-button">← Quay lại hiệu suất nhóm</a>
+        <h2 id="evaluation-detail-title">Chi tiết Đánh giá Đồng cấp cho: [Tên Sinh viên]</h2>
+
+        <div class="student-info">
+            <h3>Sinh viên: Nguyễn Văn A</h3>
+            <p>Mã số sinh viên: 197CL00001</p>
+            <p>Nhóm: Fireflies (Môn: Công nghệ phần mềm)</p>
+            <p>Điểm trung bình đánh giá từ đồng đội: 9.0/10</p>
+        </div>
+
+        <h3>Các đánh giá chi tiết:</h3>
+        <div class="evaluation-item">
+            <h4>Đánh giá từ: Trần Thị B</h4>
+            <p><strong>Khả năng đóng góp:</strong> 9/10</p>
+            <p><strong>Kỹ năng làm việc nhóm:</strong> 9/10</p>
+            <p><strong>Tinh thần trách nhiệm:</strong> 9/10</p>
+            <p><strong>Nhận xét:</strong> Bạn A luôn chủ động trong công việc, khả năng điều phối nhóm rất tốt và đưa ra nhiều ý tưởng hữu ích.</p>
+        </div>
+
+        <div class="evaluation-item">
+            <h4>Đánh giá từ: Lê Văn C</h4>
+            <p><strong>Khả năng đóng góp:</strong> 8/10</p>
+            <p><strong>Kỹ năng làm việc nhóm:</strong> 8.5/10</p>
+            <p><strong>Tinh thần trách nhiệm:</strong> 8.5/10</p>
+            <p><strong>Nhận xét:</strong> A là một leader có trách nhiệm, đôi khi hơi bận nhưng vẫn hoàn thành tốt vai trò của mình.</p>
+        </div>
+
+        <div class="evaluation-item">
+            <h4>Đánh giá từ: Phạm Thị D</h4>
+            <p><strong>Khả năng đóng góp:</strong> 9.5/10</p>
+            <p><strong>Kỹ năng làm việc nhóm:</strong> 9/10</p>
+            <p><strong>Tinh thần trách nhiệm:</strong> 9.5/10</p>
+            <p><strong>Nhận xét:</strong> A luôn hỗ trợ các thành viên khác và giữ cho nhóm đi đúng hướng. Rất hài lòng!</p>
+        </div>
+        </div>
+
+    <script>
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const studentId = urlParams.get('studentId');
+            let studentName = "Sinh viên không xác định";
+            if (studentId === "SVA") studentName = "Nguyễn Văn A";
+            else if (studentId === "TTB") studentName = "Trần Thị B";
+            else if (studentId === "LVC") studentName = "Lê Văn C";
+            else if (studentId === "PTD") studentName = "Phạm Thị D";
+
+            document.getElementById('evaluation-detail-title').innerText = `Chi tiết Đánh giá Đồng cấp cho: ${studentName}`;
+        };
+    </script>
+</body>
+</html>

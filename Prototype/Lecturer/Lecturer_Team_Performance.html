@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Danh sách Nhóm - [Tên Môn học]</title>
+    <title>Hiệu suất Nhóm & Đánh giá cá nhân</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -36,7 +36,7 @@
         }
         .container {
             padding: 20px;
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 20px auto;
             background-color: #fff;
             border-radius: 8px;
@@ -61,33 +61,53 @@
         .back-button:hover {
             background-color: #5a6268;
         }
-        .team-table {
+        .performance-summary {
+            background-color: #e6f7ff;
+            border: 1px solid #91d5ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .performance-summary h3 {
+            margin: 0;
+            color: #0056b3;
+            font-size: 20px;
+        }
+        .performance-summary .score {
+            font-size: 36px;
+            font-weight: bold;
+            color: #007bff;
+        }
+        .member-performance-table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
         }
-        .team-table th, .team-table td {
+        .member-performance-table th, .member-performance-table td {
             border: 1px solid #ddd;
             padding: 12px;
             text-align: left;
         }
-        .team-table th {
+        .member-performance-table th {
             background-color: #f2f2f2;
             color: #555;
             font-weight: bold;
         }
-        .team-table tr:nth-child(even) {
+        .member-performance-table tr:nth-child(even) {
             background-color: #f8f8f8;
         }
-        .team-table tr:hover {
+        .member-performance-table tr:hover {
             background-color: #f1f1f1;
         }
-        .view-details-link {
+        .view-evaluation-link {
             color: #007bff;
             text-decoration: none;
             font-weight: bold;
         }
-        .view-details-link:hover {
+        .view-evaluation-link:hover {
             text-decoration: underline;
         }
     </style>
@@ -104,74 +124,71 @@
     </header>
 
     <div class="container">
-        <a href="Lecturer_CCourse.html" class="back-button">← Quay lại danh sách môn học</a>
-        <h2 id="course-title">Danh sách Nhóm - Môn học: Công nghệ phần mềm</h2>
+        <a href="javascript:history.back()" class="back-button">← Quay lại danh sách nhóm</a>
+        <h2 id="performance-title">Hiệu suất và Đánh giá - Nhóm: [Tên Nhóm]</h2>
 
-        <table class="team-table">
+        <div class="performance-summary">
+            <h3>Hiệu suất tổng thể của nhóm:</h3>
+            <span class="score">8.5/10</span>
+        </div>
+
+        <h3>Đánh giá cá nhân</h3>
+        <table class="member-performance-table">
             <thead>
                 <tr>
                     <th>STT</th>
-                    <th>Tên Nhóm</th>
-                    <th>Mã Nhóm</th>
-                    <th>Số Thành viên</th>
-                    <th>Trưởng nhóm</th>
-                    <th>Trạng thái</th>
+                    <th>Tên Sinh viên</th>
+                    <th>Vai trò</th>
+                    <th>Điểm đánh giá cá nhân (TB)</th>
+                    <th>Điểm tự đánh giá</th>
                     <th>Hành động</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>1</td>
-                    <td>Nhóm Fireflies</td>
-                    <td>CNPM-001</td>
-                    <td>5</td>
-                    <td>Nguyễn Văn A</td>
-                    <td>Đang hoạt động</td>
-                    <td><a href="lecturer_team_tasks.html?teamId=CNPM-001&courseId=CNTT101" class="view-details-link">Xem chi tiết</a></td>
+                    <td>Nguyễn Văn A (Leader)</td>
+                    <td>Trưởng nhóm</td>
+                    <td>9.0</td>
+                    <td>8.8</td>
+                    <td><a href="lecturer_peer_evaluation_detail.html?studentId=SVA&teamId=CNPM-001" class="view-evaluation-link">Xem đánh giá chi tiết</a></td>
                 </tr>
                 <tr>
                     <td>2</td>
-                    <td>Nhóm Alpha</td>
-                    <td>CNPM-002</td>
-                    <td>4</td>
                     <td>Trần Thị B</td>
-                    <td>Đang hoạt động</td>
-                    <td><a href="lecturer_team_tasks.html?teamId=CNPM-002&courseId=CNTT101" class="view-details-link">Xem chi tiết</a></td>
+                    <td>Thành viên</td>
+                    <td>8.2</td>
+                    <td>8.0</td>
+                    <td><a href="lecturer_peer_evaluation_detail.html?studentId=TTB&teamId=CNPM-001" class="view-evaluation-link">Xem đánh giá chi tiết</a></td>
                 </tr>
                 <tr>
                     <td>3</td>
-                    <td>Nhóm Blue Ocean</td>
-                    <td>CNPM-003</td>
-                    <td>6</td>
                     <td>Lê Văn C</td>
-                    <td>Đã hoàn thành</td>
-                    <td><a href="lecturer_team_tasks.html?teamId=CNPM-003&courseId=CNTT101" class="view-details-link">Xem chi tiết</a></td>
+                    <td>Thành viên</td>
+                    <td>7.5</td>
+                    <td>7.8</td>
+                    <td><a href="lecturer_peer_evaluation_detail.html?studentId=LVC&teamId=CNPM-001" class="view-evaluation-link">Xem đánh giá chi tiết</a></td>
                 </tr>
                 <tr>
                     <td>4</td>
-                    <td>Nhóm Innovators</td>
-                    <td>CNPM-004</td>
-                    <td>5</td>
                     <td>Phạm Thị D</td>
-                    <td>Đang hoạt động</td>
-                    <td><a href="lecturer_team_tasks.html?teamId=CNPM-004&courseId=CNTT101" class="view-details-link">Xem chi tiết</a></td>
+                    <td>Thành viên</td>
+                    <td>8.8</td>
+                    <td>9.0</td>
+                    <td><a href="lecturer_peer_evaluation_detail.html?studentId=PTD&teamId=CNPM-001" class="view-evaluation-link">Xem đánh giá chi tiết</a></td>
                 </tr>
                 </tbody>
         </table>
     </div>
 
     <script>
-        // Simple JavaScript to update course title based on URL parameter (for demo purposes)
         window.onload = function() {
             const urlParams = new URLSearchParams(window.location.search);
-            const courseId = urlParams.get('courseId');
-            let courseName = "Môn học không xác định";
-            if (courseId === "CNTT101") courseName = "Công nghệ phần mềm";
-            else if (courseId === "PTKHT002") courseName = "Phân tích và thiết kế hệ thống";
-            else if (courseId === "LTWEB305") courseName = "Lập trình Web nâng cao";
-            else if (courseId === "ATTT401") courseName = "An toàn thông tin";
-
-            document.getElementById('course-title').innerText = `Danh sách Nhóm - Môn học: ${courseName}`;
+            const teamId = urlParams.get('teamId');
+            let teamName = "Nhóm không xác định";
+            if (teamId === "CNPM-001") teamName = "Fireflies";
+            // Add more team mappings if needed
+            document.getElementById('performance-title').innerText = `Hiệu suất và Đánh giá - Nhóm: ${teamName}`;
         };
     </script>
 </body>
