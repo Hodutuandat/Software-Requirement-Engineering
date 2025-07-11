@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VLUTaskMate - Chi tiết Dự án</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>VLUTaskMate</h1>
+        <p>Chi tiết Dự án</p>
+    </header>
+    <nav>
+        <a href="dashboard.html">Dự án của tôi</a>
+        <a href="profile.html">Profile</a>
+        <a href="index.html">Đăng xuất</a>
+    </nav>
+
+    <div class="container">
+        <a href="dashboard.html" class="btn" style="background-color: #6c757d; margin-bottom: 20px;">Quay lại</a>
+        <h2>Dự án: Thiết kế Website E-commerce</h2>
+
+        <div class="card">
+            <h3>Thông tin chung</h3>
+            <p><strong>Môn học:</strong> Thiết kế Web Nâng cao</p>
+            <p><strong>Mô tả:</strong> Xây dựng một website thương mại điện tử hoàn chỉnh với các chức năng mua sắm, quản lý giỏ hàng, thanh toán và quản lý sản phẩm.</p>
+            <p><strong>Ngày bắt đầu:</strong> 01/06/2025</p>
+            <p><strong>Ngày kết thúc dự kiến:</strong> 15/08/2025</p>
+        </div>
+
+        <div class="card">
+            <h3>Thành viên</h3>
+            <ul>
+                <li>Nguyễn Văn A (Nhóm trưởng)</li>
+                <li>Trần Thị B</li>
+                <li>Lê Đình C</li>
+                <li>Phạm Thu D</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                <h3>Nhiệm vụ</h3>
+                <button class="btn" id="createTaskBtn">Tạo Task mới</button>
+            </div>
+
+            <div id="createTaskModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-button">&times;</span>
+                    <h3>Tạo Task Mới</h3>
+                    <form id="createTaskForm">
+                        <div class="form-group">
+                            <label for="newTaskName">Tên Task:</label>
+                            <input type="text" id="newTaskName" name="newTaskName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="newTaskAssignee">Người phụ trách (MSSV hoặc Tên):</label>
+                            <input type="text" id="newTaskAssignee" name="newTaskAssignee" placeholder="Ví dụ: 217CA12345 hoặc Nguyễn Văn A">
+                        </div>
+                        <div class="form-group">
+                            <label for="newTaskDeadline">Hạn chót:</label>
+                            <input type="date" id="newTaskDeadline" name="newTaskDeadline">
+                        </div>
+                        <button type="submit" class="btn">Tạo Task</button>
+                    </form>
+                </div>
+            </div>
+
+            <div id="editTaskModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-button">&times;</span>
+                    <h3>Sửa Nhiệm vụ</h3>
+                    <form id="editTaskForm">
+                        <input type="hidden" id="editTaskId"> <div class="form-group">
+                            <label for="editTaskName">Tên Task:</label>
+                            <input type="text" id="editTaskName" name="editTaskName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editTaskAssignee">Người phụ trách (MSSV hoặc Tên):</label>
+                            <input type="text" id="editTaskAssignee" name="editTaskAssignee">
+                        </div>
+                        <div class="form-group">
+                            <label for="editTaskDeadline">Hạn chót:</label>
+                            <input type="date" id="editTaskDeadline" name="editTaskDeadline">
+                        </div>
+                        <div class="form-group">
+                            <label for="editTaskStatus">Trạng thái:</label>
+                            <select id="editTaskStatus" name="editTaskStatus">
+                                <option value="pending">Đang chờ</option>
+                                <option value="in-progress">Đang tiến hành</option>
+                                <option value="completed">Hoàn thành</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn">Lưu thay đổi</button>
+                    </form>
+                </div>
+            </div>
+
+
+            <ul id="taskList">
+                <li data-task-name="Thiết kế giao diện UI/UX" data-task-assignee="Nguyễn Văn A, Trần Thị B" data-task-status="in-progress" data-task-deadline="2025-07-20">
+                    <span>Thiết kế giao diện UI/UX (Nguyễn Văn A, Trần Thị B) - Hạn chót: 20/07/2025 - <strong>Đang tiến hành</strong></span>
+                    <div class="action-buttons" style="margin-top: 5px;">
+                        <button class="btn btn-edit edit-task-btn">Sửa</button>
+                        <button class="btn btn-delete delete-task-btn">Xóa</button>
+                    </div>
+                </li>
+                <li data-task-name="Xây dựng Frontend" data-task-assignee="Lê Đình C" data-task-status="in-progress" data-task-deadline="2025-08-01">
+                    <span>Xây dựng Frontend (Lê Đình C) - Hạn chót: 01/08/2025 - <strong>Đang tiến hành</strong></span>
+                    <div class="action-buttons" style="margin-top: 5px;">
+                        <button class="btn btn-edit edit-task-btn">Sửa</button>
+                        <button class="btn btn-delete delete-task-btn">Xóa</button>
+                    </div>
+                </li>
+                <li data-task-name="Xây dựng Backend & Database" data-task-assignee="Phạm Thu D" data-task-status="pending" data-task-deadline="2025-08-10">
+                    <span>Xây dựng Backend & Database (Phạm Thu D) - Hạn chót: 10/08/2025 - <strong>Đang chờ</strong></span>
+                    <div class="action-buttons" style="margin-top: 5px;">
+                        <button class="btn btn-edit edit-task-btn">Sửa</button>
+                        <button class="btn btn-delete delete-task-btn">Xóa</button>
+                    </div>
+                </li>
+                <li data-task-name="Kiểm thử" data-task-assignee="Tất cả" data-task-status="pending" data-task-deadline="2025-08-14">
+                    <span>Kiểm thử (Tất cả) - Hạn chót: 14/08/2025 - <strong>Đang chờ</strong></span>
+                    <div class="action-buttons" style="margin-top: 5px;">
+                        <button class="btn btn-edit edit-task-btn">Sửa</button>
+                        <button class="btn btn-delete delete-task-btn">Xóa</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <button class="btn" onclick="location.href='evaluation.html'" style="background-color: #28a745;">Hoàn thành Dự án & Đánh giá</button>
+    </div>
+
+    <script>
+        // --- Common Modal Functions ---
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "block";
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
+
+        // --- Create Task Modal Logic ---
+        var createTaskModal = document.getElementById("createTaskModal");
+        var createTaskBtn = document.getElementById("createTaskBtn");
+        var closeCreateTaskModalSpan = createTaskModal.getElementsByClassName("close-button")[0];
+        var createTaskForm = document.getElementById("createTaskForm");
+        var taskList = document.getElementById("taskList");
+
+        createTaskBtn.onclick = function() {
+            openModal("createTaskModal");
+            createTaskForm.reset(); // Clear form on open
+        }
+
+        closeCreateTaskModalSpan.onclick = function() {
+            closeModal("createTaskModal");
+        }
+
+        createTaskForm.onsubmit = function(e) {
+            e.preventDefault();
+            var taskName = document.getElementById("newTaskName").value;
+            var taskAssignee = document.getElementById("newTaskAssignee").value;
+            var taskDeadline = document.getElementById("newTaskDeadline").value; // Lấy giá trị deadline
+            var defaultStatus = "pending"; // Mặc định là "Đang chờ"
+
+            if (taskName) {
+                var newLi = document.createElement("li");
+                newLi.setAttribute('data-task-name', taskName);
+                newLi.setAttribute('data-task-assignee', taskAssignee);
+                newLi.setAttribute('data-task-status', defaultStatus);
+                newLi.setAttribute('data-task-deadline', taskDeadline); // Lưu deadline vào data attribute
+
+                newLi.innerHTML = `
+                    <span>${taskName} (${taskAssignee})${taskDeadline ? ' - Hạn chót: ' + formatDate(taskDeadline) : ''} - <strong>${getStatusText(defaultStatus)}</strong></span>
+                    <div class="action-buttons" style="margin-top: 5px;">
+                        <button class="btn btn-edit edit-task-btn">Sửa</button>
+                        <button class="btn btn-delete delete-task-btn">Xóa</button>
+                    </div>
+                `;
+                taskList.appendChild(newLi);
+                attachTaskEventListeners(newLi); // Attach listeners to new task
+                closeModal("createTaskModal");
+                this.reset();
+            }
+        };
+
+        // --- Edit Task Modal Logic ---
+        var editTaskModal = document.getElementById("editTaskModal");
+        var closeEditTaskModalSpan = editTaskModal.getElementsByClassName("close-button")[0];
+        var editTaskForm = document.getElementById("editTaskForm");
+        var currentEditingTask = null; // To store the <li> element being edited
+
+        closeEditTaskModalSpan.onclick = function() {
+            closeModal("editTaskModal");
+        }
+
+        editTaskForm.onsubmit = function(e) {
+            e.preventDefault();
+            if (currentEditingTask) {
+                var newName = document.getElementById("editTaskName").value;
+                var newAssignee = document.getElementById("editTaskAssignee").value;
+                var newDeadline = document.getElementById("editTaskDeadline").value; // Lấy giá trị deadline mới
+                var newStatus = document.getElementById("editTaskStatus").value;
+
+                // Update data attributes
+                currentEditingTask.setAttribute('data-task-name', newName);
+                currentEditingTask.setAttribute('data-task-assignee', newAssignee);
+                currentEditingTask.setAttribute('data-task-deadline', newDeadline); // Cập nhật deadline
+                currentEditingTask.setAttribute('data-task-status', newStatus);
+
+                // Update displayed text
+                currentEditingTask.querySelector('span').innerHTML = 
+                    `${newName} (${newAssignee})${newDeadline ? ' - Hạn chót: ' + formatDate(newDeadline) : ''} - <strong>${getStatusText(newStatus)}</strong>`;
+                
+                closeModal("editTaskModal");
+            }
+        };
+
+        // --- Task Action Listeners ---
+        function attachTaskEventListeners(liElement) {
+            liElement.querySelector('.delete-task-btn').onclick = function() {
+                if (confirm('Bạn có chắc chắn muốn xóa nhiệm vụ này?')) {
+                    liElement.remove();
+                }
+            };
+
+            liElement.querySelector('.edit-task-btn').onclick = function() {
+                currentEditingTask = liElement; // Set the task being edited
+
+                // Populate the edit modal with current task data
+                document.getElementById("editTaskName").value = liElement.getAttribute('data-task-name');
+                document.getElementById("editTaskAssignee").value = liElement.getAttribute('data-task-assignee');
+                document.getElementById("editTaskDeadline").value = liElement.getAttribute('data-task-deadline'); // Điền deadline hiện tại
+                document.getElementById("editTaskStatus").value = liElement.getAttribute('data-task-status');
+                
+                openModal("editTaskModal");
+            };
+        }
+
+        // Attach event listeners to initial tasks when page loads
+        document.querySelectorAll('#taskList li').forEach(attachTaskEventListeners);
+
+        // --- Utility functions ---
+        function getStatusText(status) {
+            switch (status) {
+                case 'pending': return 'Đang chờ';
+                case 'in-progress': return 'Đang tiến hành';
+                case 'completed': return 'Hoàn thành';
+                default: return '';
+            }
+        }
+
+        function formatDate(dateString) {
+            if (!dateString) return '';
+            const [year, month, day] = dateString.split('-');
+            return `${day}/${month}/${year}`;
+        }
+
+        // --- Close modals when clicking outside ---
+        window.onclick = function(event) {
+            if (event.target == createTaskModal) {
+                closeModal("createTaskModal");
+            }
+            if (event.target == editTaskModal) {
+                closeModal("editTaskModal");
+            }
+        }
+    </script>
+</body>
+</html>

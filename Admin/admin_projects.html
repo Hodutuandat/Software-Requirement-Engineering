@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VLUTaskMate - Quản lý Dự án</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Add specific styles for tables */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .data-table th, .data-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        .data-table th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>VLUTaskMate</h1>
+        <p>Quản lý Dự án</p>
+    </header>
+    <nav>
+        <a href="admin_dashboard.html">Tổng quan</a>
+        <a href="admin_users.html">Quản lý Người dùng</a>
+        <a href="admin_classes.html">Quản lý Lớp học</a>
+        <a href="admin_projects.html">Quản lý Dự án</a>
+        <a href="admin_login.html">Đăng xuất</a>
+    </nav>
+
+    <div class="container">
+        <h2>Danh sách tất cả Dự án</h2>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>ID Dự án</th>
+                    <th>Tên Dự án</th>
+                    <th>Lớp học/Dự án ngoài</th>
+                    <th>Trạng thái</th>
+                    <th>Ngày kết thúc dự kiến</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody id="projectTableBody">
+                <tr data-project-id="P001" data-project-name="Thiết kế Website E-commerce" data-project-subject="21IT601" data-project-status="in-progress" data-project-enddate="2025-08-15">
+                    <td>P001</td>
+                    <td>Thiết kế Website E-commerce</td>
+                    <td>21IT601</td>
+                    <td>Đang tiến hành</td>
+                    <td>15/08/2025</td>
+                    <td class="action-buttons">
+                        <button class="btn btn-delete delete-project-btn">Xóa</button>
+                    </td>
+                </tr>
+                <tr data-project-id="P002" data-project-name="Nghiên cứu Thị trường Game Mobile" data-project-subject="Dự án ngoài" data-project-status="in-progress" data-project-enddate="2025-07-30">
+                    <td>P002</td>
+                    <td>Nghiên cứu Thị trường Game Mobile</td>
+                    <td>Dự án ngoài</td>
+                    <td>Đang tiến hành</td>
+                    <td>30/07/2025</td>
+                    <td class="action-buttons">
+                        <button class="btn btn-delete delete-project-btn">Xóa</button>
+                    </td>
+                </tr>
+                <tr data-project-id="P003" data-project-name="Phân tích Dữ liệu Big Data" data-project-subject="21IT602" data-project-status="completed" data-project-enddate="">
+                    <td>P003</td>
+                    <td>Phân tích Dữ liệu Big Data</td>
+                    <td>21IT602</td>
+                    <td>Đã hoàn thành</td>
+                    <td>N/A</td>
+                    <td class="action-buttons">
+                        <button class="btn btn-delete delete-project-btn">Xóa</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Project Management Logic
+        const projectTableBody = document.getElementById("projectTableBody");
+
+        function attachProjectEventListeners(rowElement) {
+            rowElement.querySelector('.delete-project-btn').onclick = function() {
+                if (confirm('Bạn có chắc chắn muốn xóa dự án này?')) {
+                    rowElement.remove();
+                }
+            };
+        }
+
+        document.querySelectorAll('#projectTableBody tr').forEach(attachProjectEventListeners);
+
+        // Utility to format date for display (if needed, otherwise N/A for completed)
+        function formatDate(dateString) {
+            if (!dateString) return 'N/A';
+            const [year, month, day] = dateString.split('-');
+            return `${day}/${month}/${year}`;
+        }
+    </script>
+</body>
+</html>

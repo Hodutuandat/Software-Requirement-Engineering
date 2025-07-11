@@ -1,0 +1,372 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f6;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+    border-radius: 8px 8px 0 0;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav {
+    background-color: #e2e6ea;
+    padding: 10px 0;
+    text-align: center;
+    margin-bottom: 20px;
+    border-radius: 0 0 8px 8px;
+}
+
+nav a {
+    color: #007bff;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    background-color: #d1d5db;
+    border-radius: 5px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"],
+.form-group input[type="email"],
+.form-group input[type="date"],
+.form-group input[type="number"], /* Thêm cho input type number */
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensures padding doesn't add to the width */
+}
+
+.btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none; /* For anchor tags acting as buttons */
+    display: inline-block;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.card {
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    margin-top: 0;
+    color: #007bff;
+}
+
+.rating-stars span {
+    font-size: 24px;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.rating-stars span.active {
+    color: #ffc107; /* Gold color for active stars */
+}
+
+/* Styles for action buttons within cards/lists */
+.action-buttons {
+    margin-top: 10px;
+    display: flex; /* Helps align buttons */
+    gap: 10px; /* Space between buttons */
+}
+
+.action-buttons a,
+.action-buttons button {
+    padding: 8px 15px;
+    font-size: 14px;
+}
+
+.btn-edit {
+    background-color: #ffc107; /* Màu vàng */
+    color: #333;
+}
+.btn-edit:hover {
+    background-color: #e0a800;
+}
+
+.btn-delete {
+    background-color: #dc3545; /* Màu đỏ */
+}
+.btn-delete:hover {
+    background-color: #c82333;
+}
+
+/* Styles for Modal */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Adjustments for task list in project-detail */
+.card ul {
+    list-style: none; /* Remove default bullet points */
+    padding: 0;
+    margin: 0;
+}
+
+.card ul li {
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column; /* Stack text and buttons */
+    gap: 5px; /* Space between text and button group */
+}
+
+.card ul li .action-buttons {
+    margin-top: 0; /* Override default margin */
+    align-self: flex-end; /* Align buttons to the right */
+}
+
+/* Styles for inviting members (input + button in one line) */
+.member-invite-group {
+    display: flex; /* Makes input and button align horizontally */
+    gap: 10px; /* Space between input and button */
+    align-items: center; /* Vertically align items */
+}
+
+.member-invite-group input {
+    flex-grow: 1; /* Allows the input to take up available space */
+    box-sizing: border-box;
+}
+
+.btn-delete-small {
+    background-color: #dc3545; /* Màu đỏ */
+    color: white;
+    padding: 4px 8px; /* Smaller padding */
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 12px; /* Smaller font size */
+    margin-left: 10px; /* Space from the text */
+}
+.btn-delete-small:hover {
+    background-color: #c82333;
+}
+
+/* Style for the list of added members (create/edit project modals) */
+#membersAdded,
+#editProjectMembersList {
+    list-style: none;
+    padding: 0;
+    margin-top: 5px;
+}
+
+#membersAdded li,
+#editProjectMembersList li {
+    background-color: #e9ecef;
+    padding: 8px 12px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between; /* Puts name on left, button on right */
+    align-items: center;
+    font-size: 14px;
+}
+
+/* Styles for data tables (Admin panels) */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    overflow: hidden; /* Ensures border-radius applies to table */
+}
+
+.data-table th, .data-table td {
+    border: 1px solid #e0e0e0;
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.data-table th {
+    background-color: #f8f8f8;
+    font-weight: bold;
+    color: #555;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+.data-table tbody tr:nth-child(even) {
+    background-color: #fcfcfc;
+}
+
+.data-table tbody tr:hover {
+    background-color: #f0f0f0;
+}
+
+.data-table .action-buttons {
+    display: flex;
+    gap: 5px;
+    margin-top: 0; /* Override default margin */
+    justify-content: flex-start; /* Align buttons to the left */
+}
+
+.data-table .action-buttons .btn {
+    padding: 6px 10px;
+    font-size: 0.85em;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+    .modal-content {
+        width: 90%;
+        margin: 10% auto;
+    }
+    nav a {
+        padding: 8px 10px;
+        margin: 0 5px;
+        font-size: 14px;
+    }
+    .data-table th, .data-table td {
+        padding: 8px 10px;
+        font-size: 0.85em;
+    }
+    .data-table .action-buttons .btn {
+        padding: 4px 8px;
+        font-size: 0.75em;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 24px;
+    }
+    nav {
+        flex-direction: column;
+    }
+    nav a {
+        display: block;
+        width: 100%;
+        margin: 5px 0;
+    }
+    .btn {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .action-buttons {
+        flex-direction: column;
+        gap: 5px;
+    }
+    .action-buttons a, .action-buttons button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .member-invite-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .member-invite-group input {
+        width: 100%;
+    }
+    .member-invite-group button {
+        width: 100%;
+        margin-left: 0;
+    }
+    #membersAdded li, #editProjectMembersList li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .btn-delete-small {
+        margin-left: 0;
+        margin-top: 5px;
+        width: auto; /* Allow button to shrink */
+        align-self: flex-end; /* Align to the right in column layout */
+    }
+}
