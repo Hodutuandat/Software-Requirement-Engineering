@@ -1,0 +1,693 @@
+/* Import Google Font - Inter (Phổ biến trong UI hiện đại) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif; /* Font Inter cho cảm giác hiện đại */
+    margin: 0;
+    padding: 0;
+    background-color: #f5f7fa; /* Nền sáng, mềm mại hơn */
+    color: #333d47; /* Màu chữ xám đậm dễ đọc */
+    line-height: 1.6;
+}
+
+.container {
+    width: 88%; /* Rộng hơn một chút */
+    max-width: 1280px; /* Giới hạn chiều rộng tối đa */
+    margin: 30px auto; /* Tăng khoảng cách trên dưới */
+    padding: 35px; /* Tăng padding */
+    background-color: #ffffff;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08); /* Đổ bóng sâu, mềm mại */
+    border-radius: 16px; /* Bo góc mềm mại hơn */
+}
+
+header {
+    background-color: #3498db; /* Màu xanh dương hiện đại */
+    color: white;
+    padding: 18px 40px; /* Tăng padding */
+    border-radius: 16px 16px 0 0; /* Bo góc mềm mại */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Thêm đổ bóng cho header */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.4em; /* Lớn hơn */
+    font-weight: 700;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    flex-grow: 1;
+    text-align: left;
+}
+
+header p {
+    margin: 0 25px;
+    font-size: 1.2em;
+    font-weight: 400; /* Nhẹ nhàng hơn */
+    flex-grow: 1;
+    text-align: center;
+}
+
+nav {
+    background-color: #eef2f7; /* Nền nav bar nhẹ hơn */
+    padding: 15px 0; /* Tăng padding */
+    text-align: center;
+    margin-bottom: 30px; /* Tăng khoảng cách */
+    border-radius: 0 0 16px 16px; /* Bo góc mềm mại */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+nav a {
+    color: #3498db; /* Màu xanh dương hiện đại */
+    text-decoration: none;
+    padding: 12px 28px; /* Tăng padding */
+    margin: 0 15px; /* Tăng khoảng cách giữa các link */
+    font-weight: 500;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, color 0.3s ease, border-radius 0.3s ease;
+    position: relative; /* Dùng cho hiệu ứng hover */
+}
+
+nav a:hover {
+    background-color: #d8e4ef; /* Màu nền nhạt khi hover */
+    border-radius: 8px;
+    color: #2980b9; /* Màu xanh đậm hơn */
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 20px; /* Tăng khoảng cách */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px; /* Tăng khoảng cách */
+    font-weight: 600;
+    font-size: 1.05em;
+    color: #55606d; /* Màu xám đậm */
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"],
+.form-group input[type="email"],
+.form-group input[type="date"],
+.form-group input[type="number"],
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 14px; /* Tăng padding */
+    border: 1px solid #dce1e6; /* Màu border mềm mại hơn */
+    border-radius: 8px; /* Bo góc mềm mại */
+    box-sizing: border-box;
+    font-size: 1.0em;
+    color: #495057;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #3498db; /* Màu border khi focus */
+    outline: none; /* Bỏ outline mặc định */
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2); /* Đổ bóng khi focus */
+}
+
+/* Button Styles */
+.btn {
+    background-color: #3498db;
+    color: white;
+    padding: 14px 30px; /* Tăng padding */
+    border: none;
+    border-radius: 8px; /* Bo góc mềm mại */
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+    background-color: #2980b9;
+    transform: translateY(-3px); /* Nhấc lên nhiều hơn */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Đổ bóng mạnh hơn khi hover */
+}
+
+/* Card Styles */
+.card {
+    background-color: #ffffff;
+    border: 1px solid #e1e8ed; /* Border mềm mại hơn */
+    border-radius: 12px; /* Bo góc mềm mại hơn */
+    padding: 25px; /* Tăng padding */
+    margin-bottom: 25px; /* Tăng khoảng cách */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Đổ bóng nhẹ hơn */
+}
+
+.card h3 {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: #34495e; /* Màu xám xanh đậm */
+    border-bottom: 2px solid #f0f2f5;
+    padding-bottom: 12px;
+    margin-bottom: 18px;
+    font-weight: 600;
+}
+
+/* Rating Stars */
+.rating-stars span {
+    font-size: 32px; /* Lớn hơn */
+    color: #dbe3eb; /* Màu xám nhạt */
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.rating-stars span.active {
+    color: #ffc107;
+}
+
+/* Action Buttons within cards/lists */
+.action-buttons {
+    margin-top: 20px; /* Tăng khoảng cách */
+    display: flex;
+    gap: 12px; /* Tăng khoảng cách */
+    flex-wrap: wrap;
+}
+
+.action-buttons a,
+.action-buttons button {
+    padding: 10px 20px; /* Tăng padding */
+    font-size: 0.95em;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+.btn-edit {
+    background-color: #ffc107;
+    color: #333d47; /* Màu chữ đậm hơn */
+}
+.btn-edit:hover {
+    background-color: #e0a800;
+    transform: translateY(-2px);
+}
+
+.btn-delete {
+    background-color: #e74c3c; /* Màu đỏ tươi hơn */
+}
+.btn-delete:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.65); /* Nền tối hơn */
+    backdrop-filter: blur(5px); /* Hiệu ứng mờ mạnh hơn */
+}
+
+.modal-content {
+    background-color: #ffffff;
+    margin: 7% auto; /* Đẩy modal lên cao hơn */
+    padding: 35px;
+    border: none;
+    width: 90%;
+    max-width: 650px; /* Rộng hơn một chút */
+    border-radius: 16px;
+    position: relative;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.3); /* Đổ bóng mạnh hơn */
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+}
+
+.close-button {
+    color: #99a2ad; /* Màu xám nhẹ hơn */
+    float: right;
+    font-size: 36px; /* Lớn hơn */
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #55606d;
+}
+
+/* Task List Adjustments */
+.card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.card ul li {
+    background-color: #fcfcfc; /* Nền nhẹ nhàng hơn */
+    border: 1px solid #e9eef3;
+    border-radius: 10px; /* Bo góc */
+    padding: 15px 20px; /* Tăng padding */
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Tăng khoảng cách */
+    font-size: 1em;
+    position: relative;
+    transition: box-shadow 0.2s ease; /* Hiệu ứng đổ bóng khi hover */
+}
+.card ul li:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Đổ bóng nhẹ khi hover */
+}
+
+.card ul li .action-buttons {
+    margin-top: 0;
+    align-self: flex-end;
+}
+
+/* Member Invite Group (input + button) */
+.member-invite-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.member-invite-group input {
+    flex-grow: 1;
+    box-sizing: border-box;
+}
+
+.btn-delete-small {
+    background-color: #e74c3c;
+    color: white;
+    padding: 6px 12px; /* Kích thước nhỏ hơn */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.85em;
+    margin-left: 10px;
+    transition: background-color 0.2s ease;
+}
+.btn-delete-small:hover {
+    background-color: #c0392b;
+}
+
+/* List of added members (create/edit project modals) */
+#membersAdded,
+#editProjectMembersList {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+    border: 1px solid #e1e8ed;
+    border-radius: 10px;
+    max-height: 180px; /* Tăng chiều cao */
+    overflow-y: auto;
+}
+
+#membersAdded li,
+#editProjectMembersList li {
+    background-color: #fbfdff; /* Nền sáng hơn */
+    padding: 10px 15px;
+    margin-bottom: 0;
+    border-bottom: 1px solid #eef2f7; /* Đường kẻ mềm mại hơn */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.95em;
+    color: #4a5568;
+}
+
+#membersAdded li:last-child,
+#editProjectMembersList li:last-child {
+    border-bottom: none;
+}
+
+
+/* Styles for data tables (Admin panels) */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+    background-color: #ffffff;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.data-table th, .data-table td {
+    border: 1px solid #e1e8ed;
+    padding: 15px 20px; /* Tăng padding */
+    text-align: left;
+    font-size: 0.98em;
+    color: #4a5568;
+}
+
+.data-table th {
+    background-color: #f2f4f7;
+    font-weight: 600;
+    color: #3a4756;
+    text-transform: uppercase;
+    font-size: 0.88em;
+    letter-spacing: 0.8px;
+}
+
+.data-table tbody tr:nth-child(even) {
+    background-color: #fbfdff;
+}
+
+.data-table tbody tr:hover {
+    background-color: #e9f0f7;
+}
+
+.data-table .action-buttons {
+    display: flex;
+    gap: 8px;
+    margin-top: 0;
+    justify-content: flex-start;
+}
+
+.data-table .action-buttons .btn {
+    padding: 8px 14px;
+    font-size: 0.85em;
+}
+
+/* Notification Area Styles */
+.notification-area {
+    position: relative;
+    display: inline-block;
+    margin-left: auto;
+    padding-right: 0; /* Bỏ padding-right ở đây, padding tổng thể do header lo */
+    width: auto; /* Điều chỉnh để tự co giãn */
+}
+
+.notification-icon {
+    font-size: 28px; /* Kích thước chuông lớn hơn */
+    cursor: pointer;
+    color: white;
+    position: relative;
+    padding: 8px; /* Tăng padding */
+    transition: transform 0.2s ease;
+    border-radius: 50%; /* Bo tròn chuông */
+    background-color: rgba(255,255,255,0.1); /* Nền nhẹ khi không active */
+}
+.notification-icon:hover {
+    transform: scale(1.1);
+    background-color: rgba(255,255,255,0.2); /* Nền rõ hơn khi hover */
+}
+
+.notification-badge {
+    position: absolute;
+    top: 5px; /* Điều chỉnh vị trí */
+    right: 5px; /* Điều chỉnh vị trí */
+    background-color: #e74c3c; /* Màu đỏ nổi bật */
+    color: white;
+    border-radius: 50%;
+    padding: 4px 8px; /* Kích thước badge lớn hơn */
+    font-size: 12px;
+    line-height: 1;
+    min-width: 22px;
+    text-align: center;
+    border: 2px solid white; /* Viền trắng rõ ràng */
+    display: none;
+    font-weight: 700;
+}
+
+.notification-dropdown {
+    display: none;
+    position: absolute;
+    top: 55px; /* Vị trí dưới chuông */
+    right: 0;
+    background-color: #ffffff;
+    min-width: 320px; /* Rộng hơn */
+    max-height: 450px; /* Giới hạn chiều cao */
+    overflow-y: auto;
+    box-shadow: 0px 10px 35px 0px rgba(0,0,0,0.2); /* Đổ bóng mạnh hơn */
+    z-index: 1000;
+    border-radius: 12px;
+    border: 1px solid #e1e8ed;
+}
+
+.notification-dropdown.active {
+    display: block;
+}
+
+.notification-item {
+    padding: 15px 20px; /* Tăng padding */
+    border-bottom: 1px solid #f0f2f5;
+    font-size: 1em;
+    color: #4a5568;
+    text-align: left;
+    cursor: pointer;
+    display: block;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.notification-item:last-child {
+    border-bottom: none;
+}
+
+.notification-item:hover {
+    background-color: #f7f9fc; /* Nền sáng hơn khi hover */
+}
+
+.notification-item strong {
+    color: #3498db; /* Màu xanh chủ đạo */
+    font-weight: 600;
+}
+
+.no-notifications {
+    padding: 25px; /* Tăng padding */
+    text-align: center;
+    color: #8898a9;
+    font-style: italic;
+    font-size: 0.95em;
+}
+
+/* Specific style for role selection in index.html */
+.role-selection {
+    text-align: center;
+    margin-top: 40px;
+}
+.role-selection .btn {
+    margin: 0 20px;
+    padding: 18px 35px;
+    font-size: 1.3em;
+    min-width: 200px;
+    font-weight: 600;
+    border-radius: 10px;
+}
+/* Adjust header for index/login pages */
+body > header {
+    padding: 25px 0; /* Full width padding */
+    text-align: center;
+    display: block; /* Back to block for single title */
+}
+body > header h1 {
+    text-align: center;
+    font-size: 2.8em;
+    flex-grow: unset; /* Remove flex grow */
+    margin: 0 auto;
+}
+body > header p {
+    text-align: center;
+    font-size: 1.3em;
+    flex-grow: unset;
+    margin: 10px auto 0 auto;
+}
+body > header .notification-area {
+    display: none; /* Hide notification on login/index pages */
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .container {
+        width: 90%;
+        padding: 25px;
+    }
+    header h1 {
+        font-size: 2em;
+    }
+    header p {
+        font-size: 1em;
+    }
+    nav a {
+        padding: 8px 18px;
+        margin: 0 8px;
+        font-size: 1em;
+    }
+    .modal-content {
+        width: 80%;
+        margin: 10% auto;
+    }
+    .data-table th, .data-table td {
+        padding: 10px 12px;
+        font-size: 0.9em;
+    }
+    .data-table .action-buttons .btn {
+        padding: 4px 8px;
+        font-size: 0.75em;
+    }
+
+    body > header {
+        padding: 20px 0;
+    }
+    body > header h1 {
+        font-size: 2.2em;
+    }
+    body > header p {
+        font-size: 1.1em;
+    }
+    .role-selection .btn {
+        padding: 15px 25px;
+        font-size: 1.2em;
+        min-width: 180px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 20px;
+    }
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-right: 20px;
+    }
+    header h1 {
+        font-size: 1.8em;
+        width: 100%;
+        text-align: center;
+        margin-left: 0;
+    }
+    header p {
+        font-size: 0.9em;
+        margin: 5px 0 10px 0;
+        width: 100%;
+        text-align: center;
+    }
+    .notification-area {
+        position: static;
+        width: 100%;
+        text-align: center;
+        padding-right: 0;
+        margin-top: 10px;
+        margin-left: 0;
+    }
+    .notification-dropdown {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        min-width: 280px;
+        right: auto;
+    }
+    nav {
+        flex-direction: column;
+    }
+    nav a {
+        display: block;
+        width: 90%;
+        margin: 5px auto;
+    }
+    .btn {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .action-buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+    .action-buttons a, .action-buttons button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .member-invite-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .member-invite-group input {
+        width: 100%;
+    }
+    .member-invite-group button {
+        width: 100%;
+        margin-left: 0;
+    }
+    #membersAdded li, #editProjectMembersList li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .btn-delete-small {
+        margin-left: 0;
+        margin-top: 5px;
+        width: auto;
+        align-self: flex-end;
+    }
+
+    /* Table responsivity */
+    .data-table, .data-table thead, .data-table tbody, .data-table th, .data-table td, .data-table tr {
+        display: block;
+    }
+    .data-table thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    .data-table tr {
+        border: 1px solid #e0e0e0;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    .data-table td {
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+        text-align: right;
+    }
+    .data-table td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+        color: #666;
+    }
+    .data-table .action-buttons {
+        justify-content: center;
+    }
+
+    /* Adjust header for index/login pages */
+    body > header {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+    }
+    body > header h1 {
+        text-align: center;
+        font-size: 2em;
+    }
+    body > header p {
+        text-align: center;
+        font-size: 1em;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .role-selection .btn {
+        width: 90%;
+        margin: 10px auto;
+        font-size: 1.1em;
+        padding: 15px 20px;
+    }
+}

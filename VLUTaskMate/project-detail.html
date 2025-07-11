@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VLUTaskMate - Chi tiết Dự án</title>
+    <link rel="stylesheet" href="style.css">
+    </head>
+<body>
+    <header>
+        <h1>VLUTaskMate</h1>
+        <p>Chi tiết Dự án</p>
+        <div class="notification-area">
+            <i class="notification-icon fas fa-bell" id="notificationIcon">&#x1F514;</i> 
+            <span class="notification-badge" id="notificationBadge"></span>
+            <div class="notification-dropdown" id="notificationDropdown">
+                <a href="#" class="notification-item" data-type="invite" data-project-id="P001">Bạn nhận được lời mời tham gia nhóm <strong>"The Innovators"</strong>.</a>
+                <a href="#" class="notification-item" data-type="task" data-task-id="T001">Nhiệm vụ <strong>"Thiết kế UI/UX"</strong> đã được giao cho bạn.</a>
+                <a href="#" class="notification-item" data-type="project_deadline" data-project-id="P002">Dự án <strong>"Nghiên cứu Thị trường Game Mobile"</strong> sắp đến hạn chót.</a>
+                <a href="#" class="notification-item" data-type="feedback" data-project-id="P003">Giảng viên <strong>Trần Thị B</strong> đã gửi phản hồi về dự án của bạn.</a>
+                <div class="no-notifications" style="display:none;">Không có thông báo nào.</div>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <a href="dashboard.html">Dự án của tôi</a>
+        <a href="profile.html">Profile</a>
+        <a href="index.html">Đăng xuất</a> </nav>
+
+    <div class="container">
+        <h2 id="projectDetailName">Tên Dự án (Tải từ ID)</h2>
+
+        <div id="invitationSection" class="invitation-section" style="display:none;">
+            <h3>Bạn nhận được lời mời tham gia nhóm này!</h3>
+            <p><strong>Từ:</strong> <span id="inviteSender">Trưởng nhóm Nguyễn Văn A</span></p>
+            <p><strong>Lời nhắn:</strong> <span id="inviteMessage">Chúng tôi đang tìm kiếm thành viên cho dự án này. Rất mong bạn tham gia!</span></p>
+            <div class="action-buttons">
+                <button class="btn" style="background-color: #28a745;" id="acceptInviteBtn">Chấp nhận</button>
+                <button class="btn btn-delete" id="rejectInviteBtn">Từ chối</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <p><strong>Môn học/Dự án ngoài:</strong> <span id="projectDetailSubject"></span></p>
+            <p><strong>Mô tả:</strong> <span id="projectDetailDescription"></span></p>
+            <p><strong>Ngày bắt đầu:</strong> <span id="projectDetailStartDate">01/07/2025</span></p>
+            <p><strong>Ngày kết thúc dự kiến:</strong> <span id="projectDetailEndDate"></span></p>
+            <p><strong>Trạng thái:</strong> <span id="projectDetailStatus"></span></p>
+        </div>
+
+        <h3>Thành viên nhóm</h3>
+        <div class="card">
+            <ul id="memberList">
+                <li>Nguyễn Văn A (Trưởng nhóm)</li>
+                <li>Trần Thị B</li>
+                <li>Lê Đình C</li>
+            </ul>
+        </div>
+
+        <h3>Danh sách nhiệm vụ</h3>
+        <div class="card">
+            <ul id="taskList">
+                <li>Thiết kế UI/UX (Đang tiến hành)</li>
+                <li>Phát triển Backend (Đang tiến hành)</li>
+                <li>Viết tài liệu (Chưa bắt đầu)</li>
+            </ul>
+            <div class="action-buttons">
+                <button class="btn">Thêm nhiệm vụ mới</button>
+            </div>
+        </div>
+
+        <h3>Báo cáo tiến độ</h3>
+        <div class="card">
+            <p>Chưa có báo cáo nào.</p>
+            <div class="action-buttons">
+                <button class="btn">Tạo báo cáo mới</button>
+            </div>
+        </div>
+
+        <p style="margin-top: 20px;">
+            <a href="dashboard.html">Quay lại Dashboard</a>
+        </p>
+    </div>
+
+    <script src="common.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const params = new URLSearchParams(window.location.search);
+            const projectId = params.get('projectId');
+            const isInvite = params.get('invite'); // Check if it's an invitation
+
+            // Dummy data for prototype
+            const projects = {
+                "P001": {
+                    name: "Thiết kế Website E-commerce",
+                    subject: "Thiết kế Web Nâng cao",
+                    description: "Xây dựng một website thương mại điện tử hoàn chỉnh với các chức năng mua sắm, quản lý giỏ hàng, thanh toán và quản lý sản phẩm.",
+                    endDate: "2025-08-15",
+                    status: "Đang tiến hành",
+                    members: ["Nguyễn Văn A (Trưởng nhóm)", "Trần Thị B", "Lê Đình C", "Phạm Thu D"],
+                    tasks: ["Thiết kế UI/UX (Đang tiến hành)", "Phát triển Backend (Đang tiến hành)", "Viết tài liệu (Chưa bắt đầu)"]
+                },
+                "P002": {
+                    name: "Nghiên cứu Thị trường Game Mobile",
+                    subject: "Dự án ngoài: Đối tác XYZ",
+                    description: "Tiến hành nghiên cứu thị trường và phân tích xu hướng game mobile.",
+                    endDate: "2025-07-30",
+                    status: "Đang tiến hành",
+                    members: ["Nguyễn Văn A (Trưởng nhóm)", "Trần Thị B"],
+                    tasks: ["Nghiên cứu đối thủ (Đang tiến hành)", "Phân tích dữ liệu (Chưa bắt đầu)"]
+                },
+                "P003": {
+                    name: "Phân tích Dữ liệu Big Data",
+                    subject: "Khoa học Dữ liệu",
+                    description: "Phân tích tập dữ liệu lớn để tìm ra xu hướng và đưa ra các insight có giá trị.",
+                    endDate: "N/A",
+                    status: "Đã hoàn thành",
+                    members: ["Lê Đình C (Trưởng nhóm)", "Phạm Thu D"],
+                    tasks: ["Thu thập dữ liệu (Hoàn thành)", "Làm sạch dữ liệu (Hoàn thành)", "Xây dựng mô hình (Hoàn thành)"]
+                }
+            };
+
+            const project = projects[projectId];
+
+            if (project) {
+                document.getElementById('projectDetailName').textContent = project.name;
+                document.getElementById('projectDetailSubject').textContent = project.subject;
+                document.getElementById('projectDetailDescription').textContent = project.description;
+                document.getElementById('projectDetailEndDate').textContent = project.endDate;
+                document.getElementById('projectDetailStatus').textContent = project.status;
+
+                const memberList = document.getElementById('memberList');
+                memberList.innerHTML = '';
+                project.members.forEach(member => {
+                    const li = document.createElement('li');
+                    li.textContent = member;
+                    memberList.appendChild(li);
+                });
+
+                const taskList = document.getElementById('taskList');
+                taskList.innerHTML = '';
+                project.tasks.forEach(task => {
+                    const li = document.createElement('li');
+                    li.textContent = task;
+                    taskList.appendChild(li);
+                });
+
+                // Show invitation section if 'invite' parameter is present
+                if (isInvite === 'true') {
+                    document.getElementById('invitationSection').style.display = 'block';
+                    document.getElementById('inviteSender').textContent = project.members[0]; 
+                    document.getElementById('inviteMessage').textContent = `Chúng tôi rất muốn bạn tham gia nhóm ${project.name} để cùng hoàn thành dự án này.`;
+                }
+
+            } else {
+                document.getElementById('projectDetailName').textContent = 'Không tìm thấy thông tin dự án.';
+                document.getElementById('projectDetailSubject').textContent = 'N/A';
+                document.getElementById('projectDetailDescription').textContent = 'N/A';
+                document.getElementById('projectDetailEndDate').textContent = 'N/A';
+                document.getElementById('projectDetailStatus').textContent = 'N/A';
+            }
+
+            // Handle Accept/Reject buttons (for prototype, just alerts and hides section)
+            const acceptInviteBtn = document.getElementById('acceptInviteBtn');
+            const rejectInviteBtn = document.getElementById('rejectInviteBtn');
+            const invitationSection = document.getElementById('invitationSection');
+
+            if (acceptInviteBtn) { // Ensure button exists
+                acceptInviteBtn.addEventListener('click', function() {
+                    alert('Bạn đã chấp nhận lời mời tham gia dự án ' + project.name);
+                    if (invitationSection) invitationSection.style.display = 'none'; 
+                });
+            }
+
+            if (rejectInviteBtn) { // Ensure button exists
+                rejectInviteBtn.addEventListener('click', function() {
+                    alert('Bạn đã từ chối lời mời tham gia dự án ' + project.name);
+                    if (invitationSection) invitationSection.style.display = 'none'; 
+                });
+            }
+        });
+    </script>
+</body>
+</html>

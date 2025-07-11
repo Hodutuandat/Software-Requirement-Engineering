@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VLUTaskMate - Chi tiết Nhiệm vụ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>VLUTaskMate</h1>
+        <p>Chi tiết Nhiệm vụ</p>
+        <div class="notification-area">
+            <i class="notification-icon fas fa-bell" id="notificationIcon">&#x1F514;</i> 
+            <span class="notification-badge" id="notificationBadge"></span>
+            <div class="notification-dropdown" id="notificationDropdown">
+                <a href="#" class="notification-item" data-type="invite" data-project-id="P001">Bạn nhận được lời mời tham gia nhóm <strong>"The Innovators"</strong>.</a>
+                <a href="#" class="notification-item" data-type="task" data-task-id="T001">Nhiệm vụ <strong>"Thiết kế UI/UX"</strong> đã được giao cho bạn.</a>
+                <a href="#" class="notification-item" data-type="project_deadline" data-project-id="P002">Dự án <strong>"Nghiên cứu Thị trường Game Mobile"</strong> sắp đến hạn chót.</a>
+                <a href="#" class="notification-item" data-type="feedback" data-project-id="P003">Giảng viên <strong>Trần Thị B</strong> đã gửi phản hồi về dự án của bạn.</a>
+                <div class="no-notifications" style="display:none;">Không có thông báo nào.</div>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <a href="dashboard.html">Dự án của tôi</a>
+        <a href="profile.html">Profile</a>
+        <a href="index.html">Đăng xuất</a> </nav>
+
+    <div class="container">
+        <h2 id="taskDetailTitle">Tên Nhiệm vụ (Tải từ ID)</h2>
+        <div class="card">
+            <p><strong>Mô tả:</strong> <span id="taskDetailDescription">Đây là mô tả chi tiết của nhiệm vụ. Nhiệm vụ này bao gồm việc nghiên cứu, thu thập dữ liệu và phân tích các yếu tố ảnh hưởng.</span></p>
+            <p><strong>Dự án liên quan:</strong> <span id="taskDetailProject">Dự án Xây dựng Website E-commerce</span></p>
+            <p><strong>Người giao:</strong> <span id="taskDetailAssigner">Giảng viên Trần Thị B</span></p>
+            <p><strong>Người thực hiện:</strong> <span id="taskDetailAssignee">Bạn (Nguyễn Văn A)</span></p>
+            <p><strong>Ngày giao:</strong> <span id="taskDetailAssignedDate">01/07/2025</span></p>
+            <p><strong>Hạn chót:</strong> <span id="taskDetailDueDate">15/07/2025</span></p>
+            <p><strong>Trạng thái:</strong> <span id="taskDetailStatus" style="font-weight: bold; color: orange;">Đang tiến hành</span></p>
+            
+            <div class="action-buttons">
+                <button class="btn" style="background-color: #28a745;">Đánh dấu hoàn thành</button>
+                <button class="btn btn-edit">Chỉnh sửa nhiệm vụ</button>
+            </div>
+        </div>
+
+        <p style="margin-top: 20px;">
+            <a href="dashboard.html">Quay lại Dashboard</a>
+        </p>
+    </div>
+
+    <script src="common.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const params = new URLSearchParams(window.location.search);
+            const taskId = params.get('taskId'); 
+
+            if (taskId) {
+                document.getElementById('taskDetailTitle').textContent = `Nhiệm vụ #${taskId}: Thiết kế Giao diện Người dùng`;
+                document.getElementById('taskDetailDescription').textContent = `Nhiệm vụ này yêu cầu bạn tạo ra các bản phác thảo (wireframe) và thiết kế giao diện người dùng (UI) cho các trang chính của website. Đảm bảo tính thân thiện và dễ sử dụng.`;
+                document.getElementById('taskDetailProject').textContent = `Dự án Website E-commerce (ID: P001)`;
+                document.getElementById('taskDetailAssigner').textContent = `Trưởng nhóm: Lê Văn C`;
+                document.getElementById('taskDetailAssignee').textContent = `Bạn`;
+                document.getElementById('taskDetailAssignedDate').textContent = `05/07/2025`;
+                document.getElementById('taskDetailDueDate').textContent = `20/07/2025`;
+                document.getElementById('taskDetailStatus').textContent = `Đang tiến hành`;
+                document.getElementById('taskDetailStatus').style.color = 'orange';
+            } else {
+                document.getElementById('taskDetailTitle').textContent = 'Không tìm thấy thông tin nhiệm vụ.';
+            }
+        });
+    </script>
+</body>
+</html>
