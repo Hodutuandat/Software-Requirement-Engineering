@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VLUTaskMate - Student Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="student_style.css">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar">
+      <div class="sidebar-logo">VLUTaskMate</div>
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-link active" data-page="projects"><span>📁</span> Projects</a>
+        <a href="#" class="nav-link" data-page="tasks"><span>✅</span> Tasks</a>
+        <a href="#" class="nav-link" data-page="teams"><span>👥</span> Teams</a>
+        <a href="#" class="nav-link" data-page="profile"><span>🙍‍♂️</span> Profile</a>
+      </nav>
+    </aside>
+    <main class="main-content">
+      <header class="main-header">
+        <div class="header-title" id="headerTitle">Projects</div>
+        <div class="header-actions">
+          <div class="notification-bell" id="notifBell">
+            <span class="notif-icon">🔔</span>
+            <span class="notif-badge" id="notifBadge">2</span>
+            <div class="notif-dropdown hidden" id="notifDropdown">
+              <div class="notif-item" id="inviteNotif">
+                Bạn được mời vào dự án <b>Web E-commerce</b>
+                <div class="notif-actions">
+                  <button class="notif-accept">Chấp nhận</button>
+                  <button class="notif-decline">Từ chối</button>
+                </div>
+              </div>
+              <div class="notif-item">Bạn được giao task <b>Thiết kế UI</b></div>
+            </div>
+          </div>
+          <div class="user-combo" id="userCombo">
+            <span class="user-avatar">S</span>
+            <span class="user-name">Nguyen Van A</span>
+            <span class="user-caret">▼</span>
+            <div class="user-dropdown hidden" id="userDropdown">
+              <a href="#" id="viewProfile">Xem profile</a>
+              <a href="login.html" id="logoutBtn">Đăng xuất</a>
+            </div>
+          </div>
+        </div>
+      </header>
+      <section id="pageContent">
+        <!-- Nội dung động sẽ được render ở đây -->
+      </section>
+    </main>
+  </div>
+  <script src="student_main.js"></script>
+  <script>
+    // User combo dropdown
+    const userCombo = document.getElementById('userCombo');
+    const userDropdown = document.getElementById('userDropdown');
+    userCombo.onclick = function(e) {
+      e.stopPropagation();
+      userDropdown.classList.toggle('hidden');
+    };
+    // Notification bell
+    const notifBell = document.getElementById('notifBell');
+    const notifDropdown = document.getElementById('notifDropdown');
+    notifBell.onclick = function(e) {
+      e.stopPropagation();
+      notifDropdown.classList.toggle('hidden');
+      userDropdown.classList.add('hidden');
+    };
+    document.body.onclick = function() {
+      userDropdown.classList.add('hidden');
+      notifDropdown.classList.add('hidden');
+    };
+    // Demo: Ẩn thông báo mời khi chọn Chấp nhận hoặc Từ chối
+    const inviteNotif = document.getElementById('inviteNotif');
+    if (inviteNotif) {
+      inviteNotif.querySelector('.notif-accept').onclick = function(e) {
+        e.stopPropagation();
+        inviteNotif.style.display = 'none';
+      };
+      inviteNotif.querySelector('.notif-decline').onclick = function(e) {
+        e.stopPropagation();
+        inviteNotif.style.display = 'none';
+      };
+    }
+  </script>
+</body>
+</html> 
